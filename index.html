@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>批量打开网址 - urls.wxlet.com</title>
+	<link rel="stylesheet" href="m.css" type="text/css">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="如何,怎样,快速,快捷,迅速,一次性,打开,多个,N个,一批,URL,网址,网站,网页,办法,技巧,功能">
+	<meta name="description" content="批量打开网址，此工具解决怎样一键打开多个网站，如何批量打开N个网址，如何迅速打开多个URL，如何快速打开批量网页。">
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "../hm.baidu.com/hm.js?41b96830a80836765afe3e4a0582fc99";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+</head>
+<body>
+	<div class="container">
+		<div class="header">
+			<div class="frame">
+				<h1>批量打开网址</h1>
+			</div>
+		</div>
+		<div class="menu">
+			<div class="frame">
+				<ul>
+					<li><a href="index.html">首页</a></li>
+					<li><a href="help.html">常见问题</a></li>
+					<li><a href="contact.html">联系我们</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="content">
+			<div class="frame">
+				<div class="pull-left w60p" style="border-right:dashed 1px #999;">
+					<p>复制并粘贴网址到文本框内，点击<strong>打开</strong>按钮即可快速打开全部网址，</p>
+					<p>点击<strong>消除</strong>按钮把网址消除。请点击<a href="help.html">常见问题</a>了解浏览器设置问题以及其他注意事项。</p>
+					<p style="color:#F00">NEW: 现在起，只要输入一次网址，下次再打开会重新读取之前输入的网址啦！</p>
+					<p>
+						<textarea id="urls"></textarea>
+					</p>
+					<p>
+						<input type="image" src="open.gif" onclick="openUrls()" />
+						&nbsp;&nbsp;
+						<input type="image" src="clear.gif" onclick="clearUrls()" />
+					</p>
+				</div>
+				<div class="pull-right w40p" style="padding-left:30px;">
+					<p>独乐乐，不如众乐乐！</p>
+					<p>
+						<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a><a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a></div>
+						<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='../bdimg.share.baidu.com/static/api/js/share6e53.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+					</p>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<div class="footer">
+			
+		</div>
+	</div>
+	<script>
+		var txtUrls = document.getElementById('urls');
+		
+		window.onload = function(){
+			var v = getCookie('navUrls');
+			if(v) txtUrls.value = v.replace(/\|/g, '\n');
+			else txtUrls.value = 'http://www.wxlet.com/\nhttp://www.sina.com/\nhttp://www.163.com/\nhttp://www.wxlet.cn/';
+		}
+		
+		function openUrls(){
+			var txt = txtUrls.value.replace(/ /g, '');
+			var urls = txt.split('\n');
+			var tmp = '';
+			var result = new Array();
+			for(var i=0; i<urls.length; i++){
+				tmp = urls[i];
+				if(tmp == '') continue;
+				if(tmp.substring(0, 4) != 'http') tmp = 'http://' + tmp;
+				result.push(tmp);
+				window.open(tmp);
+			}
+			setCookie('navUrls', result.join('|'));
+		}
+		
+		function clearUrls(){
+			txtUrls.value = '';
+			txtUrls.focus();
+		}
+		
+		function setCookie(name, value){
+			var Days = 30;
+			var exp  = new Date();
+			exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000);
+			document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString();
+		}
+		
+		function getCookie(name){
+			var arr = document.cookie.match(new RegExp("(^| )" + name + "=([^;]*)(;|$)"));
+			if(arr != null) return unescape(arr[2]); return null;
+		}
+	</script>
+</body>
+</html>

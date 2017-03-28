@@ -1,0 +1,18 @@
+body{ margin:0; font-family:微软雅黑; font-size:14px; }
+img{ border:0; }
+a{ color:#007DCA; text-decoration:none; }
+.frame{ margin:0 auto; width:1000px;  }
+.header{ background-color:#ECF0F3; height:80px; line-height:80px; }
+.header h1{ margin:0; padding:0; font-size:36px; font-weight:bold; color:#007DCA; }
+.menu{ height:38px; background-color:#0B72B4; }
+.menu ul{ margin:0; padding:0; list-style-type:none; }
+.menu ul li{ float:left; }
+.menu ul li a{ display:inline-block; margin:0 10px; padding:0 10px; height:38px; line-height:38px; min-width:80px; text-align:center; font-size:14px; color:#FFF; }
+.menu ul li a:hover{ color:#FFC; }
+.content{ margin:40px 0; }
+.footer{}
+.pull-left{ float:left; }
+.pull-right{ float:right; }
+.clearfix{ clear:both; }
+.w40p{ box-sizing:border-box; width:40%; } .w60p{ box-sizing:border-box; width:60%; }
+#urls{ width:500px; height:200px; }
